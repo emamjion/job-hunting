@@ -25,7 +25,7 @@ const Home = () => {
                 </div>
             </section>
             {/* Job Category List section */}
-            <section className='px-72 mt-16 '>
+            <section className='px-72 mt-32'>
                 <div className='text-center mb-8'>
                     <h1 className='text-5xl font-medium mb-5'>Job Category List</h1>
                     <p className='text-[#757575]'>
