@@ -13,8 +13,12 @@ const Home = () => {
 
     const [jobDetails, setJobDetails] = useState([]);
     useEffect(() => {
-        fetch('/allJobs.json').then(response => response.json()).then(data => setJobDetails(data))
+        fetch('/allJobs.json').then(response => response.json()).then(data => setJobDetails(data.slice(0,4)))
     }, [])
+
+    const viewDetailsButton = () => {
+        fetch('/allJobs.json').then(response => response.json()).then(data => setJobDetails(data))
+    }
     return (
         <div>
             {/* Banner section */}
@@ -59,10 +63,10 @@ const Home = () => {
                 <div>
                     <div className='grid grid-cols-2 gap-6'>
                         {
-                            jobDetails.slice(0,4).map(jobDetail => <JobDetails key={jobDetail.id} jobDetail={jobDetail}  />)
+                            jobDetails.map(jobDetail => <JobDetails key={jobDetail.id} jobDetail={jobDetail}  />)
                         }
                     </div>
-                    <button className='bg-[#7E90FE] px-7 py-3 rounded-md text-white font-medium mt-6 block mx-auto mb-6'>See All Jobs</button>
+                    <button onClick={viewDetailsButton} className='bg-[#7E90FE] px-7 py-3 rounded-md text-white font-medium mt-6 block mx-auto mb-6'>See All Jobs</button>
                 </div>
             </section>
         </div>
