@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import bannerImg from '../../assets/All Images/P3OLGJ1 copy 1.png';
 import JobCategoryList from '../Jobcategorylist/JobCategoryList';
+import JobDetails from '../jobDetails/JobDetails';
 
 const Home = () => {
     const [jobsCategory, setJobsCategory] = useState([]);
@@ -8,6 +9,11 @@ const Home = () => {
         fetch('job_category_list.json')
         .then(response => response.json())
         .then(data => setJobsCategory(data))
+    }, []);
+
+    const [jobDetails, setJobDetails] = useState([]);
+    useEffect(() => {
+        fetch('/allJobs.json').then(response => response.json()).then(data => setJobDetails(data))
     }, [])
     return (
         <div>
@@ -49,6 +55,14 @@ const Home = () => {
                     <p className='text-[#757575]'>
                         Explore thousands of job opportunities with all the information you need. Its your future
                     </p>
+                </div>
+                <div>
+                    <div className='grid grid-cols-2 gap-6'>
+                        {
+                            jobDetails.slice(0,4).map(jobDetail => <JobDetails key={jobDetail.id} jobDetail={jobDetail}  />)
+                        }
+                    </div>
+                    <button className='bg-[#7E90FE] px-7 py-3 rounded-md text-white font-medium mt-6 block mx-auto mb-6'>See All Jobs</button>
                 </div>
             </section>
         </div>
