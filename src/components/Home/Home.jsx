@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import bannerImg from '../../assets/All Images/P3OLGJ1 copy 1.png';
 import JobCategoryList from '../Jobcategorylist/JobCategoryList';
 import JobDetails from '../jobDetails/JobDetails';
+import { addToDb } from '../../Utilities/fakeDB';
 
 const Home = () => {
     const [jobsCategory, setJobsCategory] = useState([]);
@@ -16,8 +17,13 @@ const Home = () => {
         fetch('/allJobs.json').then(response => response.json()).then(data => setJobDetails(data.slice(0,4)))
     }, [])
 
-    const viewDetailsButton = () => {
+    const seeAllJobButton = () => {
         fetch('/allJobs.json').then(response => response.json()).then(data => setJobDetails(data))
+    }
+
+    // view details button
+    const viewDetailsButton = (id) => {
+        console.log(id);
     }
     return (
         <div>
@@ -63,10 +69,10 @@ const Home = () => {
                 <div>
                     <div className='grid grid-cols-2 gap-6'>
                         {
-                            jobDetails.map(jobDetail => <JobDetails key={jobDetail.id} jobDetail={jobDetail}  />)
+                            jobDetails.map(jobDetail => <JobDetails key={jobDetail.id} jobDetail={jobDetail} viewDetailsButton={viewDetailsButton}  />)
                         }
                     </div>
-                    <button onClick={viewDetailsButton} className='bg-[#7E90FE] px-7 py-3 rounded-md text-white font-medium mt-6 block mx-auto mb-6'>See All Jobs</button>
+                    <button onClick={seeAllJobButton} className='bg-[#7E90FE] px-7 py-3 rounded-md text-white font-medium mt-6 block mx-auto mb-6'>See All Jobs</button>
                 </div>
             </section>
         </div>
