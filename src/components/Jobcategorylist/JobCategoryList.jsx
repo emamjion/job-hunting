@@ -1,7 +1,8 @@
 import React from 'react';
 
-const JobCategoryList = (props) => {
-    const {title,icon,availableJob} = props.jobCategory;
+const JobCategoryList = ({jobCategory}) => {
+    
+    const {title,icon,availableJob} = jobCategory;
     return (
         <div>
             <div>
