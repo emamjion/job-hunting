@@ -9,7 +9,7 @@ const Header = () => {
             <ul className=''>
                 <NavLink className="me-6 text-[#757575]" to="/">Home</NavLink>
                 <NavLink className="me-6 text-[#757575]" to="/statistics">Statistics</NavLink>
-                <NavLink className="me-6 text-[#757575]" to="/jobs">Applied Jobs</NavLink>
+                <NavLink className="me-6 text-[#757575]" to="/applied-jobs">Applied Jobs</NavLink>
                 <NavLink className="me-6 text-[#757575]" to="/blog">Blog</NavLink>
             </ul>
             <div>

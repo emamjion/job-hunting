@@ -3,9 +3,9 @@ import bannerImg from '../../assets/All Images/P3OLGJ1 copy 1.png';
 
 const Bannner = () => {
     return (
-        <section className='px-72 pt-16 flex items-center bg-[#F9F9FF] gap-16'>
+        <section className='lg:px-72 lg:pt-16 lg:flex items-center bg-[#F9F9FF] gap-16 sm:text-center'>
                 {/* banner - text side */}
-                <div>
+                <div className='sm:text-center'>
                     <h1 className='text-7xl font-[600]'>One Step <br/> Closer To Your</h1>
                     <span className='text-7xl font-[600] text-[#7E90FE]'>Dream Job</span>
                     <p className='mt-6 text-lg text-[#757575] w-[500px]'>

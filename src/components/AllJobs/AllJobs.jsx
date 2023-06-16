@@ -3,8 +3,8 @@ import { MapPinIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 
 const AllJobs = ({featuredJob}) => {
-    const {id, companyLogo, jobTitle, companyName, salary, location, onsite, remote, fullTime} = featuredJob;
-    
+    const { id, companyLogo, jobTitle, companyName, salary, location, onsite, remote, fullTime} = featuredJob;
+
     return (
         <div className='border mb-6 rounded-lg'>
             <div className='ps-6 py-5'>
@@ -19,7 +19,7 @@ const AllJobs = ({featuredJob}) => {
                     <p className='flex gap-2 items-center'><span><MapPinIcon className="h-5 w-5 text-[#888]" /></span> <span>{location}</span></p>
                     <p className='flex gap-2 items-center'><span><CurrencyDollarIcon className="h-5 w-5 text-[#888]" /></span><span>Salary : {salary}</span></p>
                 </div>
-                <Link to=""><button className='bg-[#7E90FE] px-5 py-2 rounded-md text-white font-medium mt-6'>View Details</button></Link>
+                <Link to={`/jobDetails/${id}`}><button className='bg-[#7E90FE] px-5 py-2 rounded-md text-white font-medium mt-6'>View Details</button></Link>
             </div>
         </div>
     );

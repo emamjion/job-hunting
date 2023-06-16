@@ -7,7 +7,13 @@ const FeaturedJobs = () => {
         fetch('/allJobs.json')
         .then(response => response.json())
         .then(data => setFeaturedJobs(data.slice(0,4)))
-    }, [])
+    }, []);
+    
+    const seeAllJobButton = () => {
+        fetch('/allJobs.json')
+        .then(response => response.json())
+        .then(data => setFeaturedJobs(data))
+    }
 
     
     return (
@@ -19,7 +25,7 @@ const FeaturedJobs = () => {
                 </p>
             </div>
             <div>
-                <div className='grid grid-cols-2 gap-6'>
+                <div className='grid md:grid-cols-2 gap-6'>
                     {
                         featuredJobs.map(featuredJob => <AllJobs
                             key={featuredJob.id}
@@ -27,7 +33,7 @@ const FeaturedJobs = () => {
                         />)
                     }
                 </div>
-                <button  className='bg-[#7E90FE] px-7 py-3 rounded-md text-white font-medium mt-6 block mx-auto mb-6'>See All Jobs</button>
+                <button onClick={seeAllJobButton}  className='bg-[#7E90FE] px-7 py-3 rounded-md text-white font-medium mt-6 block mx-auto mb-6'>See All Jobs</button>
             </div>
     </section>
     );
